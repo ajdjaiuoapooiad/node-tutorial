@@ -1,13 +1,12 @@
-const { name1, name2 } = require("./4-name");
-const sayHi = require("./5-utils");
+const {readFileSync, writeFileSync} = require('fs')
 
-const data = require('./6-altanative-flavor')
+const first = readFileSync('./content/fist.txt','utf8')
+const second = readFileSync('./content/second.txt','utf8')
 
 
-console.log(data);
-
-sayHi('yukito');
-sayHi(name1);
-sayHi(name2);
-
+writeFileSync(
+    './content/result-sync.txt',
+    `Here is the result : ${first} : ${second}`,
+    {flag: 'a'}
+)
 
